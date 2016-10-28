@@ -1,4 +1,4 @@
-require './watson/conversation'
+require_relative 'lib/watson'
 
 Watson::Conversation.configure(
   password: 'G4D5QmBwC4Ao',
@@ -7,7 +7,15 @@ Watson::Conversation.configure(
   workspace_id: 'bb3d733b-67a0-4a26-abf3-f453106e1761'
 )
 
-client = Watson::Conversation.new
+Watson::RetrieveAndRank.configure(
+  url:      'https://gateway.watsonplatform.net/retrieve-and-rank/api',
+  password: 'EQb5f0dioQi7',
+  username: '43cb0ee0-ec36-4204-a359-07ef8989726c'
+)
+
+
+# conversation example:
+#client = Watson::Conversation.new
 
 # client.send_message('Hola')
 # sleep 1
@@ -17,12 +25,18 @@ client = Watson::Conversation.new
 # sleep 1
 # client.send_message('ok gracias')
 
-puts 'Dile algo a watson!'
-user_input = nil
-until user_input == 'q' || user_input == 'exit'
-  print '> '
-  user_input = gets.chomp
-  return if user_input == 'q' || user_input == 'exit'
-  client.send_message(user_input)
-  sleep 0.5
-end
+#puts 'Dile algo a watson!'
+#user_input = nil
+#until user_input == 'q' || user_input == 'exit'
+#  print '> '
+#  user_input = gets.chomp
+#  return if user_input == 'q' || user_input == 'exit'
+#  client.send_message(user_input)
+#  sleep 0.5
+#end
+
+# Retrive and rank example
+#c = Watson::RetrieveAndRank.list_solr_clusters
+#puts c[0].inspect
+#puts c[1].inspect
+Watson::RetrieveAndRank.send_message
