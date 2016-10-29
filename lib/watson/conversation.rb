@@ -1,6 +1,3 @@
-require 'excon'
-require 'json'
-
 module Watson
   class Conversation
     def self.configure(options = {})

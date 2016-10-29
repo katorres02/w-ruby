@@ -8,9 +8,11 @@ Watson::Conversation.configure(
 )
 
 Watson::RetrieveAndRank.configure(
-  url:      'https://gateway.watsonplatform.net/retrieve-and-rank/api',
+  url:      'https://watson-api-explorer.mybluemix.net/retrieve-and-rank/api',
   password: 'EQb5f0dioQi7',
-  username: '43cb0ee0-ec36-4204-a359-07ef8989726c'
+  username: '43cb0ee0-ec36-4204-a359-07ef8989726c',
+  cluster_id: 'sc6eb55cdb_35ec_42e5_b1b0_d93d6936ac4e',
+  collection_name: 'Diabetes'
 )
 
 
@@ -39,4 +41,4 @@ Watson::RetrieveAndRank.configure(
 #c = Watson::RetrieveAndRank.list_solr_clusters
 #puts c[0].inspect
 #puts c[1].inspect
-Watson::RetrieveAndRank.send_message
+Watson::RetrieveAndRank.send_message('qué es la diabetes')

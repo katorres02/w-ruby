@@ -1,6 +1,5 @@
 require 'excon'
 require 'json'
-require_relative 'conversation'
-require_relative 'cluster'
-require_relative 'retrieve_and_rank'
-
+require 'uri'
+require_relative '../lib/watson/conversation'
+require_relative '../lib/watson/retrieve_and_rank'

@@ -1,6 +1,7 @@
 module Watson
   class Cluster
-    attr_reader :solr_cluster_id, :cluster_name, :cluster_size, :solr_cluster_status
+    attr_reader :solr_cluster_id, :cluster_name, :cluster_size,
+                :solr_cluster_status
 
     def initialize(options = {})
       @solr_cluster_id     = options['solr_cluster_id']
