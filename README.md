@@ -18,7 +18,7 @@ Watson::Conversation.configure(
 **Example:**
 A simple response from your dialog model
 ```ruby
-require 'watson-client'
+require 'watson'
 
 client = Watson::Conversation.new
 client.send_message('message one')
@@ -29,7 +29,7 @@ client.send_message('message two')
 
 Try something different
 ```ruby
-require 'watson-client'
+require 'watson'
 
 puts 'Say Hi!'
 user_input = nil
