@@ -12,9 +12,10 @@ module Watson
     end
 
     def send_message(message = '')
-      params = { input: { text: message }, alternate_intents: true }
+      return if message.empty?
+      @message = message
+      params = { input: { text: @message }, alternate_intents: true }
       params.merge!(@context) unless @context.nil?
-
       response = Excon.post(url,
                             body:     params.to_json,
                             headers:  {
@@ -24,9 +25,13 @@ module Watson
                             user:      @@username,
                             password:  @@password)
       result = JSON.parse(response.body)
-
       @context = { context: result['context'] }
-      puts result['output']['text']
+      build_response(result)
+    end
+
+    def build_response(result)
+      { source: 'conversation', intent: result['intents'][0]['intent'],
+        message: @message, tittle: @message, body: result['output']['text'] }
     end
 
     def url
