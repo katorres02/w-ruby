@@ -37,7 +37,8 @@ until user_input == 'q' || user_input == 'exit'
   print '> '
   user_input = gets.chomp
   return if user_input == 'q' || user_input == 'exit'
-  client.send_message(user_input)
+  r = client.send_message(user_input)
+  puts r
   sleep 0.5
 end
 ```
@@ -59,3 +60,21 @@ responses = Watson::RetrieveAndRank.send_message('message')
 ```
 
 The response is returned as a JSON array.
+
+### Conversation Enhanced
+Combination of Conversation API and Retrieve & Rank API. In order to get this class working you need to set both both configurations variables.
+If the `Conversation` class detects an unknown message, we call ``RetrieveAndRank` with the intent`name of that unknown message, so we need to set that intent name in the constructor of `ConversationEnhanced`` class.
+
+```ruby
+client = Watson::ConversationEnhanced.new('INTENT_NAME')
+user_input = nil
+until user_input == 'q' || user_input == 'exit'
+  print '> '
+  user_input = gets.chomp
+  return if user_input == 'q' || user_input == 'exit'
+  r = client.send_message(user_input)
+  puts r
+  sleep 0.5
+end
+
+```

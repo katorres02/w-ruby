@@ -9,7 +9,9 @@ module Watson
     end
 
     def self.send_message(message = '')
-      query = URI.encode(message)
+      return if message.empty?
+      @message = message
+      query = URI.encode(@message)
       response = Excon.post(url(query),
                             headers: {
                               'Content-Type' => 'application/json',
@@ -22,7 +24,10 @@ module Watson
     end
 
     def self.answers(data)
-      data.each { |d| puts d['body'] }
+      data.collect do |d|
+        { source: 'retrieveandrank', intent: '',
+          message: @message, tittle: d['title'], body: d['body'] }
+      end
     end
 
     def self.url(query)
