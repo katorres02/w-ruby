@@ -12,7 +12,7 @@ module Watson
     end
 
     def send_message(message = '')
-      return if message.empty?
+      return if message.empty? || message.nil?
       @message = message
       params = { input: { text: @message }, alternate_intents: true }
       params.merge!(@context) unless @context.nil?

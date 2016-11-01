@@ -1,8 +1,24 @@
-# w-ruby
+# Watson-client
+
 API client for watson IPBM services
 
-# w-ruby
-API client for watson IPBM services
+## Installation
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'watson-client'
+```
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install watson-client
+
+## Usage
 
 ### Conversation API
 Initialize your own credentials for Conversation API
@@ -78,3 +94,12 @@ until user_input == 'q' || user_input == 'exit'
 end
 
 ```
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/katorres02/w-ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
