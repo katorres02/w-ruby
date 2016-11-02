@@ -1,0 +1,20 @@
+PATH
+  remote: .
+  specs:
+    watson-client (0.1.2)
+      excon
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    excon (0.54.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  excon
+  watson-client!
+
+BUNDLED WITH
+   1.10.5
