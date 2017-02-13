@@ -30,8 +30,11 @@ module Watson
     end
 
     def build_response(result)
-      { source: 'conversation', intent: result['intents'][0]['intent'],
-        message: @message, tittle: @message, body: result['output']['text'] }
+      {
+        source: 'conversation', intent: result['intents'][0]['intent'],
+        message: @message, tittle: @message, body: result['output']['text'],
+        context_id: result['context']['conversation_id']
+      }
     end
 
     def url
